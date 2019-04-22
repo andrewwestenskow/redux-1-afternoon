@@ -1,9 +1,11 @@
 import React from "react";
 import "./RecipeCard.css";
+import store, {DELETE} from './../../store'
 
 let RecipeCard = props => {
   const {
     name,
+    index,
     category,
     authorFirst,
     authorLast,
@@ -30,6 +32,7 @@ let RecipeCard = props => {
         <ul className="list">{ingredientsDisplay}</ul>
       </div>
       <h3>Instructions</h3>
+        <p>INDEX: {index}</p>
       <div className="scroll_container">
         <ol className="list">{instructionsDisplay}</ol>
       </div>
@@ -40,6 +43,10 @@ let RecipeCard = props => {
         viewBox="0 0 60 60"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        onClick={() => {store.dispatch({
+          type: DELETE,
+          payload: index
+        })}}
       >
         <path
           d="M2.35352 57.3536L57.3535 3.3409M2.35352 2.64648L57.3535 56.6592"
