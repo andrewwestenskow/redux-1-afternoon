@@ -46,10 +46,8 @@ function reducer (state=initialState, action) {
     case CLEAR:
       return {...state, name: '', category: '', authFirst: '', authLast: '', ingredients: [], instructions: []}
     case DELETE:
-    console.log(action.payload)
       let newRecipes = [...state.recipes]
       newRecipes.splice(action.payload, 1)
-      console.log(newRecipes)
       return {...state, recipes: newRecipes}
     default:
       return state
